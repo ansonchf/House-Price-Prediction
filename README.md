@@ -51,7 +51,7 @@ To use the trained models to predict house prices, follow the instructions below
 ## Repository Structure
 ├── data/ # Directory containing the data files
 
-│ └── train.csv # Training dataset file
+│ └── test.csv # Test dataset file
 
 ├── submission/ # Directory for submission files
 
