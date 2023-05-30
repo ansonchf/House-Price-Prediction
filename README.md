@@ -36,14 +36,13 @@ To use the trained models to predict house prices, follow the instructions below
 1. Make sure you have the required Python packages installed. You can install them by running `pip install -r requirements.txt` (replace `requirements.txt` with the actual filename if different).
 
 2. Prepare the input data:
-   - Ensure that your data is in the same format as the provided training dataset (`data/train.csv`).
-   - Create a CSV file with the test data in the same format, excluding the `Id` column.
-   - Update the filename in the `main.py` file to point to your test data file.
+   - Ensure that your data is in the same format as the provided test dataset (`data/test.csv`).
+   - Update the filename in the `main.py` file to point to your data file.
 
 3. Run the `main.py` file:
    - Open a terminal or command prompt and navigate to the project directory.
    - Run the command: `python main.py`.
-   - Follow the prompts to enter the filename for your test data.
+   - Follow the prompts to enter the filename for your data.
 
 4. Prediction:
    - The script will generate predictions for the house prices based on the trained models.
