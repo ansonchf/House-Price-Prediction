@@ -2,7 +2,19 @@
 
 This project aims to predict house prices using machine learning techniques. It involves various steps such as data cleaning, feature engineering, model selection, and ensembling.
 
-## Contents
+## Kaggle Competition Details
+
+- Competition Name: House Price Prediction
+- Competition Link: [House Price Prediction Competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
+- Public Score: 0.12591 [Top 15%]
+
+## Files contents
+
+- `House_price_prediction.ipynb`: Jupyter Notebook containing the code for data exploration, preprocessing, feature engineering, model selection, and evaluation.
+- `main.py`: Python script for using the trained model to make predictions on new data.
+- `requirements.txt`: List of required Python packages for running the code.
+
+## House_price_prediction Contents
 
 - Exploratory Data Analysis (EDA)
 - Data Cleaning (Duplicate, Outliers, and Missing Value)
