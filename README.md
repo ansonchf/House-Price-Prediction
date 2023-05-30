@@ -8,7 +8,7 @@ This project aims to predict house prices using machine learning techniques. It 
 - Competition Link: [House Price Prediction Competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
 - Public Score: 0.12591 [Top 15%]
 
-## Files contents
+## Files
 
 - `House_price_prediction.ipynb`: Jupyter Notebook containing the code for data exploration, preprocessing, feature engineering, model selection, and evaluation.
 - `main.py`: Python script for using the trained model to make predictions on new data.
