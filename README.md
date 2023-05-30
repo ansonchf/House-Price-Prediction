@@ -4,7 +4,7 @@ This project aims to predict house prices using machine learning techniques. It 
 
 ## Kaggle Competition Details
 
-- Competition Name: House Price Prediction
+- Competition Name: House Prices - Advanced Regression Techniques
 - Competition Link: [House Price Prediction Competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
 - Public Score: 0.12591 [Top 15%]
 
