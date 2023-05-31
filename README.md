@@ -13,7 +13,7 @@ This project aims to predict house prices using machine learning techniques. It 
 - `House_price_prediction.ipynb`: Jupyter Notebook containing the code for data exploration, preprocessing, feature engineering, model selection, and evaluation.
 - `trained_models_full.pkl` : A file containing trained machine learning models for prediction. Unzip the rar file to load the Trained model.
 - `main.py`: Python script for using the trained model to make predictions on new data.
-- `main_backup.py`: Python script to make predictions on new data if you do not download the model.
+- `main_backup.py`: A backup version of the main script in case the user cannot download the model.
 - `requirements.txt`: List of required Python packages for running the code.
 
 ## House_price_prediction Contents
