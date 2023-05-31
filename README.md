@@ -62,3 +62,5 @@ To use the trained models to predict house prices, follow the instructions below
 ├── requirements.txt # Required Python packages
 
 ├── README.md # Project README file (you are here)
+
+├── trained_models_full.rar # unzip rar to load the Trained model
