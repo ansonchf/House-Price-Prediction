@@ -35,7 +35,7 @@ This project aims to predict house prices using machine learning techniques. It 
 
 To use the trained models to predict house prices, follow the instructions below:
 
-1. Make sure you have the required Python packages installed. You can install them by running `pip install -r requirements.txt` (replace `requirements.txt` with the actual filename if different).
+1. Make sure you have the required Python packages installed. You can install them by running `pip install -r requirements.txt`.
 
 2. Prepare the input data:
    - Ensure that your data is in the same format as the provided test dataset (`data/test.csv`).
