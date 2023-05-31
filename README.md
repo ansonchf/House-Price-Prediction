@@ -11,7 +11,9 @@ This project aims to predict house prices using machine learning techniques. It 
 ## Files
 
 - `House_price_prediction.ipynb`: Jupyter Notebook containing the code for data exploration, preprocessing, feature engineering, model selection, and evaluation.
+- `trained_models_full.pkl` : The trained model used to make predictions. Unzip rar to load the model.
 - `main.py`: Python script for using the trained model to make predictions on new data.
+- `main_backup.py`: Python script to make predictions on new data if you do not download the model.
 - `requirements.txt`: List of required Python packages for running the code.
 
 ## House_price_prediction Contents
@@ -39,7 +41,7 @@ To use the trained models to predict house prices, follow the instructions below
    - Ensure that your data is in the same format as the provided test dataset (`data/test.csv`).
    - Update the filename in the `main.py` file to point to your data file.
 
-3. Run the `main.py` file:
+3. Run the `main.py` file / `main_backup.py` file:
    - Open a terminal or command prompt and navigate to the project directory.
    - Run the command: `python main.py`.
    - Follow the prompts to enter the filename for your data.
