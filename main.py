@@ -7,12 +7,10 @@ from sklearn.impute import SimpleImputer, KNNImputer
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.compose import make_column_transformer
 from sklearn.feature_selection import SelectPercentile, mutual_info_regression
-from sklearn.ensemble import GradientBoostingRegressor, ExtraTreesRegressor, RandomForestRegressor
-from lightgbm import LGBMRegressor
-from sklearn.linear_model import BayesianRidge, Ridge
+import pickle
 
-# Function to get a valid filename
 def get_valid_filename():
+    # Function to get a valid filename
     while True:
         filename = input("Please enter the filename:\n")
         if os.path.isfile(filename):
@@ -20,9 +18,8 @@ def get_valid_filename():
         else:
             print("Invalid filename. Please try again.")
 
-# Function to add features to the dataframe
 def add_features(X):
-    # Add four more features
+    # Add four more features to the dataframe
     X["SqFtPerRoom"] = X["GrLivArea"] / (X["TotRmsAbvGrd"] + X["FullBath"] + X["HalfBath"] + X["KitchenAbvGr"])
     X['Total_Home_Quality'] = X['OverallQual'] + X['OverallCond']
     X['Total_Bathrooms'] = (X['FullBath'] + (0.5 * X['HalfBath']) + X['BsmtFullBath'] + (0.5 * X['BsmtHalfBath']))
@@ -36,6 +33,9 @@ def add_features(X):
     return X
 
 def preprocessor(X):
+    # Add features
+    X = add_features(X)
+
     # Define ordinal features
     feat_ordinal_dict = {
         # considers "missing" as "neutral"
@@ -70,7 +70,6 @@ def preprocessor(X):
 
     # Define ordinal features
     feat_nominal = sorted(list(set(X.columns) - set(feat_numerical) - set(feat_ordinal)))
-
 
     encoder_ordinal = OrdinalEncoder(
         categories=feat_ordinal_values_sorted,
@@ -121,33 +120,10 @@ def get_train_data():
     X = data.drop(columns=['SalePrice'])
     return X, y
 
-def model(preproc_Xtrain, y):
-    # Define the models params
-    gr_params = {'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 300}
-    lgbm_params = {'learning_rate': 0.1, 'n_estimators': 100, 'num_leaves': 31}
-    br_params = {'alpha_1': 1e-08, 'alpha_2': 1e-06, 'lambda_1': 1e-06, 'lambda_2': 1e-08}
-    r_params = {'alpha': 0.1}
-    et_params = {'max_depth': None, 'n_estimators': 300}
-    rt_params = {'max_depth': None, 'n_estimators': 200}
-
-    # Define the models
-    models = [
-        ("GradientBoostingRegressor", GradientBoostingRegressor(**gr_params)),
-        ("LGBMRegressor", LGBMRegressor(**lgbm_params)),
-        ("BayesianRidge", BayesianRidge(**br_params)),
-        ("Ridge", Ridge(**r_params)),
-        ("ExtraTreesRegressor", ExtraTreesRegressor(**et_params)),
-        ("RandomForestRegressor", RandomForestRegressor(**rt_params))
-]
-
-    # Train the models
-    trained_models = {}
-
-    # fit the models
-    for name, model in models:
-        model.fit(preproc_Xtrain, y)
-        trained_models[name] = model
-    
+def model():
+    # Load the trained_models dictionary from the file
+    with open('trained_models_full.pkl', 'rb') as file:
+        trained_models = pickle.load(file)
     return trained_models
 
 def model_predict(trained_models, preproc_Xtest, test_id):
@@ -175,8 +151,7 @@ if __name__ == "__main__":
     # Get the train data
     X, y = get_train_data()
 
-    # Add features and preprocess the train data
-    X = add_features(X)
+    # Preprocess the train data
     preprocessor = preprocessor(X)
     preproc_Xtrain = preprocessor.fit_transform(X,y)
     
@@ -193,7 +168,7 @@ if __name__ == "__main__":
     preproc_Xtest = preprocessor.transform(test)
 
     # Train the models
-    trained_models = model(preproc_Xtrain, y)
+    trained_models = model()
     
     # Use the model to make prediction and save it as a csv file
     model_predict(trained_models, preproc_Xtest, test_id)
