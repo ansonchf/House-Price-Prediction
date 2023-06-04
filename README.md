@@ -21,9 +21,9 @@ This project aims to predict house prices using machine learning techniques. It 
 - Exploratory Data Analysis (EDA)
 - Data Cleaning (Duplicate, Outliers, and Missing Value)
 - Feature Engineering
-- Feature Transformations
+- Feature Transformations (Encoding & Scaling)
 - Feature Selection
-- Preprocessor pipeline (Encoding & Scaling)
+- Preprocessor pipeline
 - Target Transformation
 - Model Selection
 - Model Evaluation
